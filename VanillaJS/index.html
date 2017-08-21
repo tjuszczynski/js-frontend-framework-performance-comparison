@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>VanillaJS</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+<div id="main" class="container">
+    <div class="row">
+        <div class="col-md-11 top-panel jumbotron">
+            <h1>VanillaJS</h1>
+            <div class="test-result">
+                <div class="score">Wynik wynosi:</div>
+                <div class="score" id="run-vanillajs"></div>
+            </div>
+            <div class="pull-right">
+                <div class="form-group elements-count">
+                    <select id="create-rows-count" class="form-control">
+                        <option value="1000">1000</option>
+                        <option value="100">100</option>
+                        <option value="10000">10000</option>
+                        <option value="5000">5000</option>
+                        <option value="20000">20000</option>
+                        <option value="50000">50000</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" id="create-rows">Utwórz elementy</button>
+                <button class="btn btn-primary" id="change-rows">Zmień co 10-ty element</button>
+                <div class="form-group elements-count">
+                    <select id="add-rows-count" class="form-control">
+                        <option value="100">100</option>
+                        <option value="1000">1000</option>
+                        <option value="10000">10000</option>
+                        <option value="20000">20000</option>
+                        <option value="50000">50000</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" id="add-rows">Dodaj elementy</button>
+                <button class="btn btn-primary" id="getDataHTTP">GET</button>
+                <button class="btn btn-primary" id="clear-rows">Wyczyść listę</button>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div>
+                <div class="row" id="container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="dist/bundle.js"></script>
+</body>
+</html>

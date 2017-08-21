@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Knockout v3.4.2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div id="knockout" class="container">
+    <div class="row">
+        <div class="col-md-11 top-panel jumbotron">
+            <h1>Knockout v3.4.2</h1>
+            <div class="test-result">
+                <div class="score">Wynik wynosi:</div>
+                <div class="score" id="knockout-result"></div>
+            </div>
+            <div class="pull-right">
+                <div class="form-group elements-count">
+                    <select id="element-to-create-count" class="form-control">
+                        <option value="1000">1000</option>
+                        <option value="100">100</option>
+                        <option value="10000">10000</option>
+                        <option value="5000">5000</option>
+                        <option value="20000">20000</option>
+                        <option value="50000">50000</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" data-bind="click: createRows">Utwórz elementy</button>
+                <button class="btn btn-primary" data-bind="click: changeRows">Zmień co 10-ty element</button>
+                <div class="form-group elements-count">
+                    <select id="element-to-add-count" class="form-control">
+                        <option value="100">100</option>
+                        <option value="1000">1000</option>
+                        <option value="10000">10000</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" data-bind="click: addRows">Dodaj elementy</button>
+                <button class="btn btn-primary" data-bind="click: getDataHTTP">GET</button>
+                <button class="btn btn-primary" data-bind="click: removeListOfItems">Wyczyść listę</button>
+            </div>
+        </div>
+
+        <!-- KnockoutJS -->
+        <div class="col-md-12">
+            <div>
+                <div class="row" data-bind="foreach: data">
+                    <div class="col-md-11 test-data"
+
+                         data-bind="click: $root.selectItemInList, css: { selItem: $data.id === $parent.selected() }">
+                        <div data-bind="prependText: $data.id + ' ' +$data.label()">
+                            <span data-bind="click: $root.deleteItem, clickBubble: false"
+                                  class="glyphicon glyphicon-remove pull-right knockout"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="dist/bundle.js"></script>
+</body>
+</html>

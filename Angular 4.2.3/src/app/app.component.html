@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 top-panel jumbotron">
+      <h1>Angular v4.2.3</h1>
+      <div class="test-result">
+        <div class="score">Wynik wynosi:</div>
+        <div class="score" id="run-angular"></div>
+      </div>
+      <div class="pull-right">
+        <div class="form-group elements-count">
+          <select class="form-control" [(ngModel)]="selectedCountCreate">
+            <option *ngFor="let c of countCreate" [ngValue]="c">{{c}}</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" (click)="createRows()">Utwórz elementy</button>
+        <button class="btn btn-primary" (click)="changeRows()">Zmień co 10-ty element</button>
+        <div class="form-group elements-count">
+          <select class="form-control" [(ngModel)]="selectedCountAdd">
+            <option *ngFor="let c of countAdd" [ngValue]="c">{{c}}</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" (click)="addRows()">Dodaj elementy</button>
+        <button class="btn btn-primary" (click)="getDataHTTP()">GET</button>
+        <button class="btn btn-primary" (click)="removeListOfItems()">Wyczyść listę</button>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div>
+        <div class="row"
+             (click)="selectItem(item)"
+             *ngFor="let item of data">
+          <div [class.selItem]="item.id === selected" class="col-md-11 test-data">
+            <div>{{item.id + " " + item.label}}
+              <span class="glyphicon glyphicon-remove pull-right" (click)="deleteItem(item)"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="mainApp" class="ng-scope">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>AngularJS v1.6.4</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body ng-controller="controller" class="ng-scope">
+<div class="container">
+    <div class="row">
+        <div class="col-md-11 top-panel jumbotron">
+            <h1>AngularJS v1.6.4</h1>
+            <div class="test-result">
+                <div class="score">Wynik wynosi:</div>
+                <div class="score" id="run-angular"></div>
+            </div>
+            <div class="pull-right">
+                <div class="form-group elements-count">
+                    <select class="form-control"
+                            ng-init="selectedNumberOfItemsToCreate = numberOfItemsToCreate[0]"
+                            ng-model="selectedNumberOfItemsToCreate"
+                            ng-options="item as item.value for item in numberOfItemsToCreate">
+                    </select>
+                </div>
+                <button class="btn btn-primary" ng-click="createRows()">Utwórz elementy</button>
+                <button class="btn btn-primary" ng-click="changeRows()">Zmień co 10-ty element</button>
+                <div class="form-group elements-count">
+                    <select class="form-control"
+                            ng-init="selectedNumberOfItemsToAdd = numberOfItemsToAdd[0]"
+                            ng-model="selectedNumberOfItemsToAdd"
+                            ng-options="item as item.value for item in numberOfItemsToAdd">
+                    </select>
+                </div>
+                <button class="btn btn-primary" ng-click="addRows()">Dodaj elementy</button>
+                <button class="btn btn-primary" ng-click="getDataHTTP()">GET</button>
+                <button class="btn btn-primary" ng-click="removeListOfItems()">Wyczyść listę</button>
+            </div>
+        </div>
+
+        <!-- AngularJS -->
+        <div class="col-md-12">
+            <div>
+                <div class="row" ng-repeat="item in data">
+                    <div class="col-md-11 test-data"
+                         ng-click="selectItemInList(item)"
+                         ng-class="{ selItem: item.id === selectedItem}">
+                        <div>{{item.id + " " + item.label}}
+                            <span class="glyphicon glyphicon-remove pull-right" ng-click="deleteItem($event)"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="dist/bundle.js"></script>
+</body>
+</html>
